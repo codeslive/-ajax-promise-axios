@@ -32,6 +32,13 @@ app.all('/json-server', (req, res) => {
   res.send('HELLO AJAX JSON');
 });
 
+
+app.get('/ie', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.send('HELLO AJAX IE-2');
+});
+
 //监听端口
 app.listen(8000, () => {
   console.log('服务已经启动, 8000端口正在运行在……');
