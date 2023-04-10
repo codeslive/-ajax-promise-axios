@@ -9,9 +9,10 @@ app.get('/server', (req, res)=>{
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.send('HELLO AJAX GET');
 });
-
-app.post('/server', (req, res)=>{
+//all可以接收任意类型的请求
+app.all('/server', (req, res)=>{
   res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
   res.send('HELLO AJAX POST');
 });
 
