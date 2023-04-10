@@ -28,7 +28,7 @@
     //初始化 设置类型 URL
     xhr.open('POST', 'http://127.0.0.1:8000/server');
     //发送
-    xhr.send();
+    xhr.send('a=100&b=200&c=300');
     //事件绑定
     xhr.onreadystatechange = function(){
       //判断
