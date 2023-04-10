@@ -7,7 +7,12 @@ const app = express();
 //创建路由规则
 app.get('/server', (req, res)=>{
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.send('HELLO AJAX');
+  res.send('HELLO AJAX GET');
+});
+
+app.post('/server', (req, res)=>{
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.send('HELLO AJAX POST');
 });
 
 //监听端口
