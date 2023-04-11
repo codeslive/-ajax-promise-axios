@@ -66,7 +66,7 @@ app.all('/axios-server', (req, res) => {
   res.send(JSON.stringify(data));
 });
 
-
+//fetch
 app.all('/fetch-server', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', '*');
@@ -75,6 +75,19 @@ app.all('/fetch-server', (req, res) => {
   };
   res.send(JSON.stringify(data));
 
+});
+
+//jsonp
+app.all('/jsonp-server', (req, res) => {
+
+  const data = {
+    name: '小康-jsonp'
+  };
+  let str = JSON.stringify(data);
+  // //返回结果
+  res.end(`handle(${str})`);
+
+  // res.send('console.log("jsonp-onp is")');
 
 });
 
