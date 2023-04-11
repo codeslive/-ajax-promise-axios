@@ -102,6 +102,22 @@ app.all('/check-username', (req, res) => {
   res.end(`handle(${str})`);
 });
 
+
+//
+app.all('/jquery-jsonp-server', (req, res) => {
+
+  const data = {
+    name: '小康',
+    city: ['北京', '上海', '深圳']
+  };
+  //将数据转化为字符串
+  let str = JSON.stringify(data);
+  //接收 callback 参数
+  let cb = req.query.callback;
+  //返回结果
+  res.end(`${cb}(${str})`);
+});
+
 //监听端口
 app.listen(8000, () => {
   console.log('服务已经启动, 8000端口正在运行在……');
