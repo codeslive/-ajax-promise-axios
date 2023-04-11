@@ -118,6 +118,15 @@ app.all('/jquery-jsonp-server', (req, res) => {
   res.end(`${cb}(${str})`);
 });
 
+
+app.all('/cors-server', (req, res) => {
+  //设置响应头
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Method", "*");
+  res.send('hello CROS');
+});
+
 //监听端口
 app.listen(8000, () => {
   console.log('服务已经启动, 8000端口正在运行在……');
