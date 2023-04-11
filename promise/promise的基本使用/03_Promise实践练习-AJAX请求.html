@@ -10,12 +10,19 @@
     <div class="container">
         <h2 class="page-header">Promise 封装 AJAX 操作</h2>
         <button class="btn btn-primary" id="btn">点击发送 AJAX</button>
+        <hr>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div id="text"></div>
+          </div>
+        </div>
     </div>
     <script>
         //接口地址 https://api.apiopen.top/getJoke
         //获取元素对象
         const btn = document.querySelector('#btn');
-
+        const text = document.getElementById('text');
+        text.innerHTML = 'In the same dream, looking forward to meeting you.';
         btn.addEventListener('click', function(){
             // 创建Promise
             const p = new Promise((resolve, reject) =>{
@@ -42,7 +49,7 @@
             
             //调用 then 方法
             p.then(value=>{
-              console.log(value);
+              text.innerHTML = value;
             },reason=>{
               console.warn(reason);
             });
