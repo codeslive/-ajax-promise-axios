@@ -47,7 +47,7 @@
     }).then(value => {
       console.log(value);
     });
-  }
+  };
 
   btns[1].onclick = function () {
     axios.post('/axios-server', {
@@ -66,6 +66,41 @@
       }
 
     })
+  };
+
+
+  btns[2].onclick = function () {
+    axios({
+      //请求方法
+      method: 'POST',
+      //url
+      url: '/axios-server',
+      //url参数
+      params: {
+        vip: 10,
+        level: 30
+      },
+      //头信息
+      headers: {
+        a: 100,
+        b: 200
+      },
+      data: {
+        username: 'admin',
+        password: 'admin'
+      }
+
+    }).then(res => {
+      //响应状态码
+      console.log(res.status);
+      //响应状态字符串
+      console.log(res.statusText);
+      //响应头信息
+      console.log(res.headers);
+      //响应体
+      console.log(res.data);
+
+    });
   }
 
 </script>
