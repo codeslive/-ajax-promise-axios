@@ -45,7 +45,18 @@ app.get('/delay', (req, res) => {
   setTimeout(() => {
     res.send('延时响应');
   }, 3000);
-  
+
+});
+
+app.all('/jquery-server', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  const data = {
+    name: '小康'
+  };
+  res.send(JSON.stringify(data));
+
+
 });
 
 //监听端口
