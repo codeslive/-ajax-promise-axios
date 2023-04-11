@@ -55,6 +55,15 @@ app.all('/jquery-server', (req, res) => {
     name: '小康'
   };
   res.send(JSON.stringify(data));
+});
+
+app.all('/axios-server', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  const data = {
+    name: '小康'
+  };
+  res.send(JSON.stringify(data));
 
 
 });
