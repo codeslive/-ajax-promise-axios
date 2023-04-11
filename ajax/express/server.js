@@ -87,8 +87,19 @@ app.all('/jsonp-server', (req, res) => {
   // //返回结果
   res.end(`handle(${str})`);
 
-  // res.send('console.log("jsonp-onp is")');
+});
 
+
+//原生jsonp
+app.all('/check-username', (req, res) => {
+
+  const data = {
+    exist: 1,
+    msg: '用户名已经存在'
+  };
+  let str = JSON.stringify(data);
+  // //返回结果
+  res.end(`handle(${str})`);
 });
 
 //监听端口
