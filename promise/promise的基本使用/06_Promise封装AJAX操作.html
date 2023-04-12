@@ -64,7 +64,9 @@
   const btn = document.getElementById('btn');
   //获取 button 元素
   const showText = document.getElementById('text');
-  showText.innerHTML = '&nbsp&nbsp 因为太害怕失去，所以才将苦痛剥离。——原创';
+  //空格
+  const nbsp = '&nbsp&nbsp';
+  showText.innerHTML = `${nbsp}因为太害怕失去，所以才将苦痛剥离。——原创`;
   //绑定点击事件
   btn.addEventListener('click', function () {
     // sendAJAX('https://api.oick.cn/dutang/api.php').then(value => {
@@ -73,15 +75,16 @@
     // }, reason => {
     //   console.log(reason);
     // });
-
+    showText.innerHTML = `${nbsp}加载中, 请耐心等待……`;
     sendAJAX('https://api.wrdan.com/hitokoto').then(value => {
-      // console.log(value);
-      let {text, source} = value;
-      showText.innerHTML = `&nbsp&nbsp${text}——${source}`;
+      let { text, source } = value;
+      showText.innerHTML = `${nbsp}${text}——${source}`;
     }, reason => {
-      console.log(reason);
+      
     });
   });
+
+
 
 
 
