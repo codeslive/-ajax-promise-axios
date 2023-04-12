@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class版本封装</title>
+    <script src="./promise.js"></script>
+</head>
+
+<body>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('Promise-class');
+            }, 1000);
+            // resolve('OK');
+
+        });
+        let p2 = Promise.resolve('Success');
+
+        let result = Promise.race([p1, p2]);
+        console.log(result);
+
+        // p1.then(value => {
+        //     console.log(222);
+        // }, reason => {
+        //     console.log(333);
+        // });
+
+    </script>
+</body>
+
+</html>
