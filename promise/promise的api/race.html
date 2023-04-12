@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>race</title>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link crossorigin='anonymous' href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="page-header">race</h2>
+    <div class="panel panel-default">
+      <div id="showText_1"></div>
+      <hr>
+      <div class="panel-body">
+        <a href="#" class="thumbnail">
+          <img src="https://img.tucang.cc/api/image/show/06c4f652be548d20cfedbd1dea2d72d7" alt="bing">
+        </a>
+        <a href="#" class="thumbnail">
+          <img src="https://img.tucang.cc/api/image/show/0567e9998a31d503d57ba4dbe0356067" alt="bing">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const showText_1 = document.getElementById('showText_1');
+    //空格
+    const nbsp = '&nbsp&nbsp&nbsp';
+    let p1 = new Promise((resolve, reject) => {
+      // resolve('OK');
+      setTimeout(() => {
+        resolve('OK');
+      }, 1000);
+    });
+
+    let p2 = Promise.resolve('Success');
+    let p3 = Promise.resolve('Oh Yeah');
+
+    //当所有Promise对像执行 resolve 时, 返回的结果是 OK Success Oh Yeah
+    showText_1.innerHTML = `${nbsp}谁先改变状态, race就返回谁的结果`;
+    const result = Promise.race([p1, p2, p3]);
+    console.log(result);
+
+
+
+  </script>
+</body>
+
+</html>
