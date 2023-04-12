@@ -13,16 +13,21 @@
   <script>
     //实例化对象
     let p = new Promise((resolve, reject) => {
-      resolve('OK');
+      setTimeout(() => {
+        // resolve('OK');
+        reject("Error");
+      }, 1000)
     });
 
     //执行 then 方法
     const res = p.then(value => {
-      //抛出异常
-      throw "FAIL";
+      // return 'oh Yeah';
+      throw 'error';
     }, reason => {
-      console.warn(reason);
+      // console.warn(reason);
+      throw 'error';
     });
+
     console.log(res);
 
   </script>
