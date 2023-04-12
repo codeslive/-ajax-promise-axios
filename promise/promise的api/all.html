@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>all</title>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link crossorigin='anonymous' href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="page-header">all</h2>
+    <div class="panel panel-default">
+      <div id="showText_1"></div>
+      <hr>
+      <div class="panel-body">
+        <a href="#" class="thumbnail">
+          <img src="https://img.tucang.cc/api/image/show/4fbae4a2c7904c8c42cb083db1f645e5" alt="bing">
+        </a>
+        <a href="#" class="thumbnail">
+          <img src="https://img.tucang.cc/api/image/show/e7b225a61dacabe312f1919aeb5c2d17" alt="bing">
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    const showText_1 = document.getElementById('showText_1');
+    //空格
+    const nbsp = '&nbsp&nbsp&nbsp';
+    let p1 = new Promise((resolve, reject) => {
+      resolve('OK');
+    });
+
+    // let p2 = Promise.resolve('Success');
+    let p2 = Promise.reject('error');
+
+    let p3 = Promise.resolve('Oh Yeah');
+
+    //当所有Promise对像执行 resolve 时, 返回的结果是 OK Success Oh Yeah
+    showText_1.innerHTML = `${nbsp}当所有Promise对像执行 resolve 时, 返回的结果是 OK Success Oh Yeah, 否则返回错误信息`;
+    const result = Promise.all([p1, p2, p3]);
+    console.log(result);
+
+
+
+  </script>
+</body>
+
+</html>
