@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async与await结合发送AJAX</title>
+  <link crossorigin='anonymous' href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="page-header">Promise 封装 AJAX 操作</h2>
+    <button class="btn btn-primary" id="btn">我不喜欢, 换一句</button>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="text"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //axios
+    function sendAJAX (url) {
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open("GET", url);
+        xhr.send();
+        //处理结果
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            //判断成功
+            if (xhr.status >= 200 && xhr.status < 300) {
+              //成功的结果
+              resolve(xhr.response);
+            } else {
+              reject(xhr.status);
+            }
+          }
+        }
+      });
+    }
+    //一言接口地址 https://api.wrdan.com/hitokoto
+    const btn = document.querySelector('#btn');
+    //获取 button 元素
+    const showText = document.getElementById('text');
+    //空格
+    const nbsp = '&nbsp&nbsp';
+    showText.innerHTML = `${nbsp}因为太害怕失去，所以才将苦痛剥离。——原创`;
+    btn.addEventListener('click', async function () {
+      //等待加载
+      showText.innerHTML = `${nbsp}加载中, 请耐心等待……`;
+      //获取一言
+      let yiyan = await sendAJAX('https://api.wrdan.com/hitokoto');
+      let { text, source } = yiyan;
+      showText.innerHTML = `${nbsp}${text}——${source}`;
+      // console.log(yiyan);
+    });
+  </script>
+</body>
+
+</html>
