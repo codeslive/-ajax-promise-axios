@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>then回调函数异步执行的实现</title>
+    <script src="./promise.js"></script>
+</head>
+
+<body>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            // setTimeout(() => {
+            //     resolve('OK');
+            // }, 1000);
+            resolve('OK');
+            console.log(111);
+
+        });
+
+        console.log(p1);
+
+        p1.then(value => {
+            console.log(222);
+        }, reason => {
+            console.log(333);
+        });
+
+    </script>
+</body>
+
+</html>
