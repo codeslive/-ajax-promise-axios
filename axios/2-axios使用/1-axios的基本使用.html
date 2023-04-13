@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-axios的基本使用</title>
+  <!-- 引入axios -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.3.5/axios.min.js" crossorigin='anonymous'></script>
+  <!-- 引入bootcss -->
+  <link crossorigin='anonymous' href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="page-header">axios的基本使用</h2>
+    <button class="btn btn-primary" id="btn">点击控制台输出axios信息</button>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="showText"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    const btn = document.getElementById('btn');
+    const showText = document.getElementById('showText');
+    showText.innerHTML = '点击按钮查看axios信息';
+    btn.addEventListener('click', function () {
+      console.log(axios);
+      if (axios) {
+        showText.innerHTML = 'Success';
+      } else {
+        showText.innerHTML = 'Fail';
+      }
+
+    });
+  </script>
+</body>
+
+</html>

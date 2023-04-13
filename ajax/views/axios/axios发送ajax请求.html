@@ -18,6 +18,8 @@
     <button class="btn btn-primary">GET</button>
     <button class="btn btn-danger">POST</button>
     <button class="btn btn-info">AJAX</button>
+    <button class="btn btn-info">上传图片</button>
+    <input class="file" name="file" type="file" accept="image/png,image/gif,image/jpeg" @change="update($event)" />
   </div>
 </body>
 
@@ -25,7 +27,8 @@
 
 <script>
   const btns = document.querySelectorAll('button');
-
+  const file = document.getElementById('file');
+  console.log(file);
   //配置 baseURL
   axios.defaults.baseURL = 'http://127.0.0.1:8000';
 
@@ -102,5 +105,7 @@
 
     });
   }
+
+
 
 </script>
